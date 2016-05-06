@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>React 执行流程</title>
+    <script src="./reactjs/react.js"></script>
+    <script src="./reactjs/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+</head>
+<body>
+	<div id="container"></div>
+	<script type="text/babel">
+		var HelloWorld = React.createClass({
+
+			getDefaultProps:function() {
+				console.log("getDefaultProps");
+			},
+			getInitialState: function() {
+				console.log("getInitialState");
+				return null;
+			},
+			componentWillMount:function() {
+				console.log("componentWillMount");
+			},
+			componentDidMount:function() {
+				console.log("conpomentDidMount");
+			},
+	 		render:function() {
+	 			console.log("render");
+	 			return <div>Hello {this.props.name}</div>;
+	 		}
+ 		});
+
+ 		ReactDOM.render(<HelloWorld name="World" />,document.getElementById('container'));
+	</script>
+</body>
+</html>
