@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Todo小例子</title>
+    <script src="./reactjs/react.js"></script>
+    <script src="./reactjs/react-dom.js"></script>
+    <script src="./reactjs/browser.min.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        var TodoApp = React.createClass({
+
+            getInitialState: function() {
+                return {text: ''};
+            },
+            onChange: function(e) {
+                this.setState({text:e.target.value});
+            },
+            render:function() {
+                return <div>
+                            <h3>这是Todo小例子</h3>
+                            <form>
+                                <input onChange={this.onChange} value={this.state.text}/>
+                                <button>ADD{this.state.text}</button>
+                            </form>
+                       </div>;
+            }
+
+
+        });
+
+        ReactDOM.render(<TodoApp />,document.getElementById('container'));
+    </script>
+</body>
+</html>
